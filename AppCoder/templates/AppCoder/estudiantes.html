@@ -1,0 +1,22 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} ESTUDIANTES {% endblock %}
+
+{% block contenido %}
+<h2>FORMULARIO - Agregar estudiantes</h2>
+<form action="{% url 'estudiantes' %}" method="POST"> {% csrf_token %}
+    <table>
+        {{ formulario.as_table }}
+    </table>
+    <input type="submit" value="GUARDAR ESTUDIANTE">
+</form>
+{{ mensaje }}
+<h1>ESTUDIANTES</h1>
+<ul>
+    {% for estudiante in estudiantes %}
+        <li>{{ estudiante.nombre }} {{ estudiante.apellido }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

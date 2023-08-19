@@ -1,0 +1,22 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} SEDES {% endblock %}
+
+{% block contenido %}
+<h2>FORMULARIO - Agregar sedes</h2>
+<form action="{% url 'sedes' %}" method="POST"> {% csrf_token %}
+    <table>
+        {{ formulario.as_table }}
+    </table>
+    <input type="submit" value="GUARDAR SEDE">
+</form>
+{{ mensaje }}
+<h1>SEDES</h1>
+<ul>
+    {% for sede in sedes %}
+        <li>{{ sede.nombre }} - {{ sede.direccion }} - {{ sede.telefono }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

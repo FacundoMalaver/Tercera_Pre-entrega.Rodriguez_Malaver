@@ -1,0 +1,17 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} BIENVENIDO {% endblock %}
+
+{% block contenido %}
+<h2>Puede buscar comisiones</h2>
+<form action="{% url 'buscar' %}" method="GET">
+
+    <input type="number" name="comision" id="comision" placeholder="INSERTE COMISION">
+
+    <input type="submit" value="Buscar comision">
+
+</form>
+{{ mensaje }}
+{% endblock %}
