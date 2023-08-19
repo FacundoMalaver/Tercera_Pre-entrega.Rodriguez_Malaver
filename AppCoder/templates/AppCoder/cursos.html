@@ -1,0 +1,23 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} FORMULARIO DE CARGA DE CURSOS {% endblock %}
+
+{% block contenido %}
+    <h2>FORMULARIO - Agregar profesores</h2>
+    <form action="{% url 'cursos' %}" method="POST"> {% csrf_token %}
+        <table>
+            {{ formulario.as_table }}
+        </table>
+        <input type="submit" value="GUARDAR CURSO">
+    </form>
+    {{ mensaje }}
+
+<h1>CURSOS</h1>
+<ul>
+    {% for curso in cursos %}
+        <li>{{ curso.nombre }} - {{curso.comision}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
